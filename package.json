@@ -18,9 +18,8 @@
   },
   "scripts": {
     "start": "npm run build && node dist/index.js",
-    "ts-types": "tsc --emitDeclarationOnly",
     "check": "npm run prettier && npm run lint && npm test",
-    "build": "npm run check && rm -rf dist && NODE_ENV=production node esbuild.js && npm run ts-types",
+    "build": "rm -rf dist && NODE_ENV=production node esbuild.js && tsc --emitDeclarationOnly",
     "prettier": "prettier --write ./src",
     "lint": "eslint ./src --ext .ts",
     "dev": "vitest --watch",

@@ -8,7 +8,11 @@
     "removeComments": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {
+      // workaround for: https://github.com/vitest-dev/vitest/issues/4567
+      "rollup/parseAst": ["./node_modules/rollup/dist/parseAst"]
+    }
   },
   "exclude": ["node_modules", "**/*.test.js", "dist"]
 }

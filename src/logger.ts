@@ -1,7 +1,6 @@
 import { createLogger, format, transports } from 'winston';
 import {
-  ElasticsearchTransport,
-  ElasticsearchTransformer
+  ElasticsearchTransport
 } from 'winston-elasticsearch';
 
 const esTransportOpts = {
@@ -14,15 +13,15 @@ const esTransportOpts = {
       username: 'NX4jPVtxmC',
       password: 'QNw5bzyHoXC9YFkr'
     }
-  },
+  }
   // clientOpts: {
   // serverUrl: "https://NX4jPVtxmC:QNw5bzyHoXC9YFkr@kolenka-inc-4135333449.eu-central-1.bonsaisearch.net"
   // },
-  transformer: (logData) => {
-    const transformed = ElasticsearchTransformer(logData);
-    //  transformed.fields.customField = 'customValue'
-    return transformed;
-  }
+  // transformer: (logData) => {
+  //   const transformed = ElasticsearchTransformer(logData);
+  //   //  transformed.fields.customField = 'customValue'
+  //   return transformed;
+  // }
 };
 // const esTransport = new ElasticsearchTransport(esTransportOpts);
 
