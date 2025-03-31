@@ -12,6 +12,9 @@ const esTransportOpts = {
     auth: {
       username: 'NX4jPVtxmC',
       password: 'QNw5bzyHoXC9YFkr'
+    },
+    headers: {
+      "Content-type": "application/json",
     }
   }
   // clientOpts: {

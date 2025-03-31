@@ -1,6 +1,6 @@
 import winston from 'winston'
 
-import TransportElastic from 'elasticsearch-transport'
+import TransportElastic from 'framebassman-elasticsearch-transport'
 
 export const log = winston.createLogger({
   format: winston.format.combine(winston.format.timestamp(), winston.format.json(), winston.format.prettyPrint()),
@@ -17,7 +17,8 @@ export const log = winston.createLogger({
         headers: {
           "Content-type": "application/json",
         }
-      }
+      },
+      index: 'filebeat-7.10.2'
     })
   ],
 });
