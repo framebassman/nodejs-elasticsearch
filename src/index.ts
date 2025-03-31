@@ -1,5 +1,5 @@
 import { HelloWorld } from './hello-world';
-import { log } from './logger';
+import { log } from './winston-elasticsearch-logger';
 
 export const sayHello = () => {
   log.info('hello world');
