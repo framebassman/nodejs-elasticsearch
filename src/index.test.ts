@@ -1,3 +1,4 @@
+import { it, expect } from "vitest";
 import { sayHello } from '.';
 
 it('should display "Hello World!"', () => {
