@@ -48,7 +48,9 @@
     "prettier": "^3.1.1",
     "rimraf": "^5.0.5",
     "ts-jest": "^29.1.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "winston": "^3.17.0",
+    "winston-elasticsearch": "^0.19.0"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -58,18 +60,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Cadienvan/npm-package-ts-scaffolding.git"
+    "url": "git@github.com:framebassman/nodejs-elasticsearch.git"
   },
   "license": "MIT",
-  "author": "Michael Di Prisco <cadienvan@gmail.com>",
+  "author": "Dmitry Romashov <dmitry@romashov.tech>",
   "keywords": [
     "npm",
     "package",
     "typescript",
     "scaffolding"
-  ],
-  "dependencies": {
-    "winston": "^3.17.0",
-    "winston-elasticsearch": "^0.19.0"
-  }
+  ]
 }
