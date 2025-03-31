@@ -13,6 +13,9 @@ export const log = winston.createLogger({
         auth: {
           username: 'NX4jPVtxmC',
           password: 'QNw5bzyHoXC9YFkr',
+        },
+        headers: {
+          "Content-type": "application/json",
         }
       }
     })
