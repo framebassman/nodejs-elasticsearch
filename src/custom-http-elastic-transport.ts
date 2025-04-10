@@ -1,4 +1,3 @@
-// import { HttpTransportInstance } from 'winston/lib/winston/transports';
 import { Http, HttpTransportOptions } from 'winston/lib/winston/transports';
 import https from 'https';
 import http from 'http';
@@ -21,6 +20,7 @@ export class CustomHttpElasticTransport extends Http {
       this.headers.Authorization = `Bearer ${auth.bearer}`;
     }
     options['@timestamp'] = options.timestamp;
+    delete options.timestamp;
     const req = (this.ssl ? https : http).request({
       ...this.options,
       method: 'POST',
