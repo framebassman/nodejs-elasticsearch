@@ -12,7 +12,10 @@ export class CustomHttpElasticTransport extends Http {
     super(options);
     this.options = options;
     // Prepare options for outgoing HTTP request
-    this.headers = Object.assign({}, this.options.headers) as NodeJS.Dict<OutgoingHttpHeader>;
+    this.headers = Object.assign(
+      {},
+      this.options.headers
+    ) as NodeJS.Dict<OutgoingHttpHeader>;
   }
 
   _doRequest(options, callback, auth, path) {
@@ -28,21 +31,26 @@ export class CustomHttpElasticTransport extends Http {
       port: this.options.port,
       path: `/${path.replace(/^\//, '')}`,
       headers: this.headers,
-      auth: (auth && auth.username && auth.password) ? (`${auth.username}:${auth.password}`) : '',
+      auth:
+        auth && auth.username && auth.password
+          ? `${auth.username}:${auth.password}`
+          : '',
       agent: this.options.agent
     });
 
     req.on('error', callback);
-    req.on('response', res => {
+    req.on('response', (res) => {
       const body: any[] = [];
       res.on('data', (chunk: any) => {
         body.push(chunk);
-      })
-      res.on('end', () => {
-        const result = Buffer.concat(body).toString();
-        console.log(result);
-        callback(null, res);
-      }).resume()
+      });
+      res
+        .on('end', () => {
+          const result = Buffer.concat(body).toString();
+          console.log(result);
+          callback(null, res);
+        })
+        .resume();
     });
     const jsonStringify = configure({
       ...(this.maximumDepth && { maximumDepth: this.maximumDepth })
